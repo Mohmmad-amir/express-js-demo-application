@@ -1,6 +1,7 @@
 <%-include ('header.ejs');-%>
 
-    <div class=" container">
+    <div class="container">
+        <!-- title row -->
         <div class="row">
             <div class="col-12 col-md-12 col-sm-12">
                 <h1 class="text-center text-capitalize py-3">
@@ -8,6 +9,45 @@
                 </h1>
             </div>
         </div>
+        <!-- form row -->
+        <form>
+            <div class="row">
+                <!-- name column -->
+                <div class=" col-sm-12 col-md-6">
+                    <div class="mb-3">
+                        <label for="projectName" class="form-label">Project Name</label>
+                        <input type="text" class="form-control" name="projectName" id="projectName"
+                            aria-describedby="emailHelp">
+                    </div>
+                </div>
+                <!-- image column -->
+                <div class=" col-sm-12 col-md-6">
+                    <div class="mb-3">
+                        <label for="projectImage" class="form-label">Project Image</label>
+                        <input type="file" class="form-control" name="projectImage" id="projectImage"
+                            accept=".jpg,.png">
+                    </div>
+                </div>
+                <!-- short description column -->
+                <div class=" col-sm-12 col-md-6">
+                    <div class="mb-3">
+                        <label for="projectShortDesc" class="form-label">Project Short Description</label>
+                        <textarea class="form-control" id="projectShortDesc" name="projectShortDesc"
+                            aria-label="With textarea"></textarea>
+                    </div>
+                </div>
+
+                <!-- short description column -->
+                <div class=" col-sm-12 col-md-6">
+                    <div class="mb-3">
+                        <label for="projectDesc" class="form-label">Project Description</label>
+                        <textarea class="form-control" id="projectDesc" name="projectDesc"
+                            aria-label="With textarea"></textarea>
+                    </div>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
     </div>
 
 
