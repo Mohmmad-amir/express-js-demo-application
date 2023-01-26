@@ -1,15 +1,18 @@
 const express = require('express')
 const app = express();
 const port = 8080;
-
+var path = require('path')
 app.set('view engine', 'ejs')
 // setup static folder
-app.use(express.static(__dirname + '/public'))
+// app.use(express.static(__dirname + '/public'))
+app.use(express.static(path.join(__dirname, 'public')));
 
 // home page router
 const homePageRouter = require('./routes/pages')
-app.use('/', homePageRouter)
-
+app.use('/', homePageRouter);
+// project Router
+const projectRouter = require('./routes/projectRoute')
+app.use('/projects', projectRouter);
 
 
 

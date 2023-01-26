@@ -4,7 +4,8 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Express Application || <%= title %>
+    <title>
+        <%= title %> || Express Application
     </title>
     <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" />
     <link rel="stylesheet"
@@ -19,7 +20,7 @@
     <div id="wrapper">
         <nav class="navbar navbar-dark align-items-start sidebar sidebar-dark accordion bg-gradient-primary p-0">
             <div class="container-fluid d-flex flex-column p-0">
-                <a class="navbar-brand d-flex justify-content-center align-items-center sidebar-brand m-0" href="#">
+                <a class="navbar-brand d-flex justify-content-center align-items-center sidebar-brand m-0" href="/">
                     <div class="sidebar-brand-icon rotate-n-15">
                         <i class="fas fa-laugh-wink"></i>
                     </div>
@@ -28,21 +29,24 @@
                 <hr class="sidebar-divider my-0" />
                 <ul class="navbar-nav text-light" id="accordionSidebar">
                     <li class="nav-item">
-                        <a class="nav-link active" href="./index.html"><i
+                        <a class="nav-link active" href="/"><i
                                 class="fas fa-tachometer-alt"></i><span>Dashboard</span></a>
                     </li>
+                    <!-- projects link -->
                     <li class="nav-item">
-                        <a class="nav-link" href="./profile.html"><i class="fas fa-user"></i><span>Profile</span></a>
+                        <a class="nav-link" href="/projects"><i class="fas fa-gear"></i><span>Projects</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="./table.html"><i class="fas fa-table"></i><span>Table</span></a>
+                        <a class="nav-link" href="projects/create"><i class="fas fa-gear"></i><span>Create
+                                Project</span></a>
                     </li>
+                    <!-- about Link -->
                     <li class="nav-item">
-                        <a class="nav-link" href="./login.html"><i class="far fa-user-circle"></i><span>Login</span></a>
+                        <a class="nav-link" href="/about"><i class="fas fa-address-card"></i><span>About</span></a>
                     </li>
+                    <!-- contact link -->
                     <li class="nav-item">
-                        <a class="nav-link" href="./register.html"><i
-                                class="fas fa-user-circle"></i><span>Register</span></a>
+                        <a class="nav-link" href="/contact"><i class="far fa-address-book"></i><span>contact</span></a>
                     </li>
                 </ul>
                 <div class="text-center d-none d-md-inline">
