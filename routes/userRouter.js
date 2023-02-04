@@ -13,19 +13,14 @@ router.get('/create', function (req, res, next) {
 });
 
 // fetch data Route
-router.get('/all', (res, req) => {
-
-    moviesModel.find().then(data => {
-        if (data) {
-            res, render("movies", {
-                data: data
-            }, { title: 'all movies' })
-            console.log("Students in Database Courses:")
-            console.log(data[1]);
+router.get('/all', function (req, res) {
+    moviesModel.find((err, docs) => {
+        if (!err) {
+            res.render('movies', { data: docs, title: "all movies" })
+        } else {
+            console.log(err);
         }
-
     })
-        .catch(err => { console.log(err); })
 
 })
 
