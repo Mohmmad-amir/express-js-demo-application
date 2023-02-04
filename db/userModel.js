@@ -1,5 +1,5 @@
 const mongoose = require('mongoose')
-require('./database')
+// require('./database')
 const { Schema } = mongoose
 // create a schema
 const userSchema = new Schema({
@@ -8,7 +8,20 @@ const userSchema = new Schema({
     // name: String,
     // email: String,
 })
+const moviesSchema = new Schema({
+    name: String,
+    year: Number,
+    directed_by: String,
+    written_by: String,
+    produced_by: Array,
+    starting: Object,
+    cinematography: String,
+    edited_by: Object,
+    music_by: String
+
+})
 
 var userModel = mongoose.model('users', userSchema)
+var moviesModel = mongoose.model('movies', moviesSchema)
 // module.exports = mongoose.model('users' + userModel)
-exports = userModel
+module.exports = { userModel, moviesModel }

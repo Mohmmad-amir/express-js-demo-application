@@ -1,10 +1,13 @@
-const express = require('express')
+const express = require('express');
+const database = require('./db/database');
 const app = express();
-const database = require('./db/database')
-database()
 require('./db/userModel')
-
+require('./db/database')
 const port = 8080;
+
+
+
+
 app.set('view engine', 'ejs')
 // setup static folder
 app.use(express.static(__dirname + '/public/'))
@@ -21,7 +24,9 @@ app.use('/api/users', userRouter);
 
 
 app.listen(port, () => {
-    console.log('server is running......!');
+    database()
+
+    console.log(`server is running on port ${port}......!`);
 })
 
 
