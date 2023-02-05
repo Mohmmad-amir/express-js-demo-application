@@ -10,7 +10,7 @@ const userSchema = new Schema({
 })
 const moviesSchema = new Schema({
     name: String,
-    year: Number,
+    years: Number,
     directed_by: String,
     written_by: String,
     produced_by: Array,

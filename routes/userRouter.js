@@ -4,7 +4,7 @@ const mongoose = require('mongoose')
 const { userModel, moviesModel } = require('../db/userModel')
 var { body, validationResult } = require('express-validator');
 const database = require('../db/database');
-const { render } = require('ejs');
+// const { render } = require('ejs');
 
 
 // user page
@@ -21,7 +21,26 @@ router.get('/all', function (req, res) {
             console.log(err);
         }
     })
-
+})
+// show single data Route
+router.get('/(:movieID)/show', (req, res) => {
+    moviesModel.findOne(req.params.moviesID, (err, doc) => {
+        if (!err) {
+            res.render('movieShow', { showData: doc, title: 'show movie details' })
+        } else {
+            console.log(err);
+        }
+    })
+})
+// delete data route
+router.get('/delete/(:moviesID)', (req, res) => {
+    moviesModel.findByIdAndRemove(req.params.moviesID, (err, doc) => {
+        if (!err) {
+            res.redirect('/api/users/all')
+        } else {
+            console.log(err);
+        }
+    })
 })
 
 
