@@ -1,8 +1,6 @@
 const express = require('express');
 const database = require('./db/database');
 const app = express();
-require('./db/userModel')
-require('./db/database')
 const port = 8080;
 
 
@@ -20,6 +18,9 @@ app.use('/api/projects', projectRouter);
 // user router
 const userRouter = require('./routes/userRouter')
 app.use('/api/users', userRouter);
+/*movie route*/
+const movieRouter = require('./routes/movieRoute')
+app.use('/api/movies', movieRouter)
 // database function from ./db/database.js
 
 
