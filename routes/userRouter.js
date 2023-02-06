@@ -1,37 +1,24 @@
 const express = require('express')
 const router = express.Router()
 const mongoose = require('mongoose')
-const { userModel, moviesModel } = require('../db/userModel')
-var { body, validationResult } = require('express-validator');
-const database = require('../db/database');
+const { moviesModel } = require('../db/userModel')
+// var { body, validationResult } = require('express-validator');
+// const database = require('../db/database');
 // const { render } = require('ejs');
+// user controller
+const user_controller = require('../controllers/userController')
 
 
-// user page
-router.get('/create', function (req, res, next) {
-    res.render('userCreate', { title: 'add user' });
-});
 // fetch user all data
-router.get('/list', (req, res) => {
-    userModel.find((err, docs) => {
-        if (!err) {
-            res.render('usersList', { userData: docs, title: "user List" })
-        } else {
-            console.log(err);
-        }
-    })
-})
+router.get('/list', user_controller.index)
+// user page
+router.get('/create', user_controller.create);
+// insert data Route
+// store function from the user controller
+router.post('/create/add', user_controller.store,)
 // show user single data
-router.get('/list/(:userID)/show', (req, res) => {
-    userModel.findById(req.params.userID, (err, docs) => {
-        if (!err) {
-            res.render('userShow', { showUserData: docs, title: "show user details" })
-        } else {
-            console.log(err);
-        }
-    })
-})
-// fetch data Route
+router.get('/list/(:userID)/show', user_controller.show)
+// fetch all movie data Route
 router.get('/all', function (req, res) {
     moviesModel.find((err, docs) => {
         if (!err) {
@@ -41,7 +28,7 @@ router.get('/all', function (req, res) {
         }
     })
 })
-// show single data Route
+// show single movie data Route
 router.get('/(:movieID)/show', (req, res) => {
     moviesModel.findOne(req.params.moviesID, (err, doc) => {
         if (!err) {
@@ -51,7 +38,7 @@ router.get('/(:movieID)/show', (req, res) => {
         }
     })
 })
-// delete data route
+// delete movie data route
 router.get('/delete/(:moviesID)', (req, res) => {
     moviesModel.findByIdAndRemove(req.params.moviesID, (err, doc) => {
         if (!err) {
@@ -62,44 +49,6 @@ router.get('/delete/(:moviesID)', (req, res) => {
     })
 })
 
-
-// insert data Route
-router.post('/create/add',
-    body('userName').notEmpty(),
-    body('userEmail').notEmpty(),
-    body('userEmail').isEmail(),
-    (req, res, next) => {
-
-        //if not get any error
-        const errors = validationResult(req);
-        if (!errors) {
-            var userDetails = new userModel({
-                name: req.body.userName,
-                email: req.body.userEmail,
-            });
-
-            // save userDetails
-            userDetails.save((err, doc) => {
-                if (!err) {
-                    req.flash('success', 'user added successfully')
-                    req.redirect('/')
-                } else {
-                    console.log('Error during record insertion : ' + err);
-                }
-            })
-        } else {
-            var error_msg = ''
-            errors.forEach(error => {
-                error_msg += error.msg + '<br>'
-            });
-            req.flash('error', error_msg)
-            res.render('/create', {
-                title: 'Add New User',
-                name: req.body.userName,
-                email: req.body.userEmail
-            })
-        }
-    })
 
 
 
