@@ -11,7 +11,26 @@ const database = require('../db/database');
 router.get('/create', function (req, res, next) {
     res.render('userCreate', { title: 'add user' });
 });
-
+// fetch user all data
+router.get('/list', (req, res) => {
+    userModel.find((err, docs) => {
+        if (!err) {
+            res.render('usersList', { userData: docs, title: "user List" })
+        } else {
+            console.log(err);
+        }
+    })
+})
+// show user single data
+router.get('/list/(:userID)/show', (req, res) => {
+    userModel.findById(req.params.userID, (err, docs) => {
+        if (!err) {
+            res.render('userShow', { showUserData: docs, title: "show user details" })
+        } else {
+            console.log(err);
+        }
+    })
+})
 // fetch data Route
 router.get('/all', function (req, res) {
     moviesModel.find((err, docs) => {

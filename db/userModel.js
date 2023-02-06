@@ -3,10 +3,23 @@ const mongoose = require('mongoose')
 const { Schema } = mongoose
 // create a schema
 const userSchema = new Schema({
-    name: { type: String, required: true },
+    name: Array,
+    title: String,
     email: { type: String, required: true },
-    // name: String,
-    // email: String,
+    age: Number,
+    fathers_name: String,
+    mothers_name: String,
+    gender: String,
+    nationality: String,
+    religion: String,
+    address: {
+        village: "",
+        post_office: "",
+        post_code: "",
+        thana: "",
+        district: ""
+    }
+
 })
 const moviesSchema = new Schema({
     name: String,

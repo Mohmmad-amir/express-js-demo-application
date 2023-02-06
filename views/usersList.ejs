@@ -1,0 +1,50 @@
+<%-include ('header');-%>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th colspan="3">action</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            <% if(userData.length){ for(var i=0; i< userData.length; i++) {%>
+                <tr>
+                    <th scope="row">
+                        <% (i+1) %>
+                            <%= userData[i]._id%>
+                    </th>
+                    <td>
+                        <%= userData[i].name%>
+                    </td>
+                    <td>
+                        <a href="/api/users/<%= userData[i]._id%>/edit" class="btn btn-sm btn-info">Edit <i
+                                class="fa-solid fa-pen-to-square"></i></a>
+                    </td>
+                    <td>
+                        <a href="/api/users/list/<%= userData[i]._id%>/show" class="btn btn-sm btn-primary">Show <i
+                                class="fa-solid fa-binoculars"></i></a>
+
+                    </td>
+                    <td>
+                        <a href="/api/users/delete/<%= userData[i]._id%>" class="btn btn-sm btn-danger">Delete <i
+                                class="fa-solid fa-trash"></i></a>
+
+                    </td>
+                </tr>
+                <% } }else{ %>
+                    <tr>
+                        <td colspan="3">No user</td>
+                    </tr>
+                    <% } %>
+
+        </tbody>
+    </table>
+
+
+
+
+
+    <%-include ('footer');-%>
