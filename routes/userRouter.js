@@ -17,6 +17,8 @@ router.get('/create', user_controller.create);
 router.post('/create/add', user_controller.store,)
 // show user single data
 router.get('/list/(:userID)/show', user_controller.show)
+// delete user single data
+router.get('/delete/(:userID)', user_controller.delete)
 
 
 module.exports = router

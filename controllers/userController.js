@@ -58,3 +58,17 @@ exports.show = (req, res) => {
         }
     })
 }
+
+/*
+* delete function
+* this function work for delete data from a model
+*/
+exports.delete = (req, res) => {
+    userModel.findByIdAndRemove(req.params.userID, (err, doc) => {
+        if (!err) {
+            res.redirect('/api/users/list')
+        } else {
+            console.log(err);
+        }
+    })
+}
