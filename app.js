@@ -21,7 +21,7 @@ app.use('/api/users', userRouter);
 /*movie route*/
 const movieRouter = require('./routes/movieRoute')
 app.use('/api/movies', movieRouter)
-// database function from ./db/database.js
+
 
 
 app.listen(port, () => {
