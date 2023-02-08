@@ -6,7 +6,7 @@ const port = 8080;
 
 
 
-app.use(express.bodyParser().json())
+app.use(bodyParser())
 app.set('view engine', 'ejs')
 // setup static folder
 app.use(express.static(__dirname + '/public/'))
