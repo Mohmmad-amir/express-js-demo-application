@@ -8,7 +8,8 @@ const personSchema = mongoose.Schema({
         village: String,
         thana: String,
         post_code: Number
-    }
+    },
+    hobby: Array
 });
 
 module.exports = mongoose.model("Person", personSchema)
