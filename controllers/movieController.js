@@ -1,4 +1,4 @@
-const { moviesModel } = require('../models/movieModel')
+const moviesModel = require('../models/movieModel')
 
 
 /*
@@ -14,6 +14,7 @@ exports.index = (req, res) => {
         }
     })
 }
+
 /*
 * show function
 * this function work for show the single data from a model

@@ -1,4 +1,4 @@
-const { userModel } = require('../models/userModel')
+const userModel = require('../models/userModel')
 //index function
 exports.index = (req, res) => {
     userModel.find((err, docs) => {

@@ -15,6 +15,5 @@ const moviesSchema = new Schema({
 
 })
 
-var moviesModel = mongoose.model('movies', moviesSchema)
-// module.exports = mongoose.model('users' + userModel)
-module.exports = { moviesModel }
+
+module.exports = mongoose.model("movies", moviesSchema)

@@ -25,6 +25,9 @@ app.use('/api/movies', movieRouter)
 /*person route*/
 const personRouter = require('./routes/personRoute')
 app.use('/api/person', personRouter)
+//this route for return json data
+const apiRouter = require('./routes/apiRoutes')
+app.use('/api/json/data/v1', apiRouter)
 
 
 

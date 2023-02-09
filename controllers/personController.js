@@ -9,14 +9,6 @@ exports.index = (req, res, next) => {
     Person.find()
         .exec()
         .then(docs => {
-            // if (docs) {
-            //     console.log(docs);
-            //     res.status(200).json(docs)
-            // }else{
-            //     res.status(404).json({
-            //         message:"No valid entry found for provided ID"
-            //     })
-            // }
             console.log(docs);
             res.status(200).json(docs)
 
