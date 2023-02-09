@@ -1,15 +1,13 @@
 const express = require('express');
-var bodyParser = require('body-parser');
 const database = require('./db/database');
-const axios = require('axios');
+// const axios = require('axios');
 const app = express();
 const port = process.env.port || 8000;
 
-
-app.use(bodyParser.urlencoded({
-    extended: true
-}));
-app.use(bodyParser.json())
+//parse form data
+app.use(express.urlencoded({extended: false}));
+//parse json
+app.use(express.json())
 app.set('view engine', 'ejs')
 // setup static folder
 app.use(express.static(__dirname + '/public/'))

@@ -5,7 +5,7 @@ const Person = require('../models/personModel')
 *   index function
 *   this is for fetch all data from database
  */
-exports.index = (req, res, next) => {
+const index = (req, res, next) => {
     Person.find()
         .exec()
         .then(docs => {
@@ -24,9 +24,8 @@ exports.index = (req, res, next) => {
 *   store function
 *   this is for store data in database
  */
-exports.store = (req, res) => {
+const store = (req, res) => {
     const person = new Person({
-        // _id: mongoose.Types.ObjectId,
         name: req.body.personName,
         email: req.body.personEmail,
         address: {
@@ -38,18 +37,12 @@ exports.store = (req, res) => {
     });
 
     person.save().then(result => {
-        console.log(result);
         res.status(201).json({
             message: "people data added successfully",
             createdPerson: person
         })
+        console.log(req.body);
     }).catch(err => console.log(err));
-
-    console.log({
-        data: req.body,
-        message: "Data is null"
-    });
-
 
 }
 
@@ -57,7 +50,7 @@ exports.store = (req, res) => {
 *   show function
 *   this is for show single data from database using ID
  */
-exports.show = (req, res, next) => {
+const show = (req, res, next) => {
     const id = req.params.personID
     Person.findById(id)
         .exec()
@@ -67,7 +60,7 @@ exports.show = (req, res, next) => {
                 res.status(200).json(doc)
             } else {
                 res.status(404).json({
-                    message: "No valid entry found for provided ID"
+                    message: `No valid entry found for provided ID:${id}`
                 })
             }
 
@@ -83,16 +76,30 @@ exports.show = (req, res, next) => {
 *   this is for delete single data from database using the ID
  */
 
-exports.destroy = (req, res,) => {
+const destroy = (req, res,) => {
     const id = req.params.personID
     Person.remove({ _id: id })
         .exec()
         .then(
-            res.redirect('/api/persons')
+            res.status(200).json({
+                success:true,
+                message:`person Delete successfully with id: ${id}`
+            })
         )
         .catch(err => {
             console.log(err)
             res.status(500).json({ error: err })
         })
 
+}
+
+
+
+
+
+module.exports = {
+    index,
+    store,
+    show,
+    destroy
 }

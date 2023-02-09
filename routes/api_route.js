@@ -1,15 +1,20 @@
 const express = require('express')
 const router = express.Router()
-const person_controller = require('../controllers/personController')
+const {
+    index, store, show, destroy
+} = require('../controllers/personController')
 
 
 /*
 * api person router router
  */
-router.get('/persons/', person_controller.index)
-router.post('/person/add', person_controller.store)
-router.get('/person/:personID/show', person_controller.show)
-router.get('/person/delete/:personID/', person_controller.destroy)
+// router.get('/persons/', index)
+// router.post('/person/add', store)
+// router.get('/person/:personID/show', show)
+// router.get('/person/delete/:personID/', destroy)
+
+router.route('/persons').get(index).post(store)
+router.route('/persons/:personID').get(show).delete(destroy)
 
 
 /*
