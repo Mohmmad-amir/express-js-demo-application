@@ -1,7 +1,7 @@
 const express = require('express')
 const router = express.Router()
 const {
-    index, store, show, destroy
+    index, store, show, destroy, update
 } = require('../controllers/personController')
 
 
@@ -14,7 +14,7 @@ const {
 // router.get('/person/delete/:personID/', destroy)
 
 router.route('/persons').get(index).post(store)
-router.route('/persons/:personID').get(show).delete(destroy)
+router.route('/persons/:personID').get(show).delete(destroy).patch(update)
 
 
 /*
