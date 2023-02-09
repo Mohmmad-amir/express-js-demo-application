@@ -88,14 +88,12 @@ exports.destroy = (req, res,) => {
     const id = req.params.personID
     Person.remove({ _id: id })
         .exec()
-        .try(result => {
-            res.status(200).json(result);
-        })
+        .then(
+            res.redirect('/api/person')
+        )
         .catch(err => {
             console.log(err)
             res.status(500).json({ error: err })
         })
-    // console.log("hello world");
-    // res.send("delete request")
 
 }
