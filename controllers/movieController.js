@@ -32,12 +32,18 @@ exports.show = (req, res) => {
 * delete function
 * this function work for delete data from a model
 */
-exports.delete = (req, res) => {
-    moviesModel.findByIdAndRemove(req.params.moviesID, (err, doc) => {
-        if (!err) {
-            res.redirect('/api/users/all')
-        } else {
-            console.log(err);
-        }
-    })
+exports.destroy = (req, res) => {
+
+
+    const id = req.params.moviesID
+    moviesModel.remove({ _id: id })
+        .exec()
+        .then(result => {
+            res.redirect('/api/movies/all')
+        })
+        .catch(err => {
+            console.log(err)
+            res.status(500).json({ error: err })
+        })
+
 }

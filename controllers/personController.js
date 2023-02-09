@@ -5,25 +5,25 @@ const Person = require('../models/personModel')
 *   index function
 *   this is for fetch all data from database
  */
-exports.index = (req, res, next)=>{
+exports.index = (req, res, next) => {
     Person.find()
-    .exec()
-    .then(docs =>{
-        // if (docs) {
-        //     console.log(docs);
-        //     res.status(200).json(docs)
-        // }else{
-        //     res.status(404).json({
-        //         message:"No valid entry found for provided ID"
-        //     })
-        // }
+        .exec()
+        .then(docs => {
+            // if (docs) {
+            //     console.log(docs);
+            //     res.status(200).json(docs)
+            // }else{
+            //     res.status(404).json({
+            //         message:"No valid entry found for provided ID"
+            //     })
+            // }
             console.log(docs);
             res.status(200).json(docs)
 
-    })
-    .catch(err=>{
+        })
+        .catch(err => {
             console.log(err)
-            res.status(500).json({error:err})
+            res.status(500).json({ error: err })
         })
 }
 
@@ -58,25 +58,25 @@ exports.store = (req, res) => {
 *   show function
 *   this is for show single data from database using ID
  */
-exports.show = (req, res, next)=>{
+exports.show = (req, res, next) => {
     const id = req.params.personID
     Person.findById(id)
-    .exec()
-    .then(doc =>{
-        if (doc) {
-            console.log(doc);
-            res.status(200).json(doc)
-        }else{
-            res.status(404).json({
-                message:"No valid entry found for provided ID"
-            })
-        }
+        .exec()
+        .then(doc => {
+            if (doc) {
+                console.log(doc);
+                res.status(200).json(doc)
+            } else {
+                res.status(404).json({
+                    message: "No valid entry found for provided ID"
+                })
+            }
 
-    })
-    .catch(err=>{
-        console.log(err)
-        res.status(500).json({error:err})
-    })
+        })
+        .catch(err => {
+            console.log(err)
+            res.status(500).json({ error: err })
+        })
 }
 
 /*
@@ -84,18 +84,18 @@ exports.show = (req, res, next)=>{
 *   this is for delete single data from database using the ID
  */
 
-exports.delete = (req, res, next)=>{
-    // const id = req.params.personID
-    // Person.remove( id )
-    // .exec()
-    // .then(result => {
-    //         res.status(200).json(result);
-    //     })
-    // .catch(err=>{
-    //     console.log(err)
-    //     res.status(500).json({error:err})
-    // })
-
-res.send("delete request")
+exports.destroy = (req, res,) => {
+    const id = req.params.personID
+    Person.remove({ _id: id })
+        .exec()
+        .try(result => {
+            res.status(200).json(result);
+        })
+        .catch(err => {
+            console.log(err)
+            res.status(500).json({ error: err })
+        })
+    // console.log("hello world");
+    // res.send("delete request")
 
 }

@@ -9,6 +9,6 @@ router.get('/all', movie_controller.index)
 router.get('/(:movieID)/show', movie_controller.show)
 
 // delete movie data route
-router.get('/delete/(:moviesID)', movie_controller.delete)
+router.get('/delete/(:moviesID)', movie_controller.destroy)
 
 module.exports = router
