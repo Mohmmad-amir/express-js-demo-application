@@ -5,7 +5,9 @@ const app = express();
 const port = 8080;
 
 
-
+app.use(bodyParser.urlencoded({
+    extended: true
+}));
 app.use(bodyParser.json())
 app.set('view engine', 'ejs')
 // setup static folder
@@ -20,7 +22,7 @@ app.use('/api/projects', projectRouter);
 const webRouter = require('./routes/web')
 app.use('/web', webRouter)
 //this route for return json data
-const apiRouter = require('./routes/api')
+const apiRouter = require('./routes/api_route')
 app.use('/api', apiRouter)
 
 

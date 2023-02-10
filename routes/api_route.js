@@ -1,6 +1,5 @@
 const express = require('express')
 const router = express.Router()
-const apiController = require('../controllers/apiController')
 const person_controller = require('../controllers/personController')
 
 
@@ -16,11 +15,11 @@ router.get('/person/delete/:personID/', person_controller.destroy)
 /*
 * api person router router
  */
-router.get('/movies/data/list', apiController.movieIndex)
+// router.get('/movies/data/list', apiController.movieIndex)
 /*
 * api person router router
  */
-router.get('/user/data/list', apiController.userIndex)
+// router.get('/user/data/list', apiController.userIndex)
 
 
 

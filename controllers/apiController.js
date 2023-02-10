@@ -1,6 +1,5 @@
 const moviesModel = require('../models/movieModel')
 const userModel = require('../models/userModel')
-const Person = require('../models/personModel')
 
 
 

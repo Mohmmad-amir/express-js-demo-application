@@ -36,6 +36,7 @@ exports.store = (req, res) => {
         },
         hobby: [req.body.hobbyOne, req.body.hobbyTwo]
     });
+
     person.save().then(result => {
         console.log(result);
         res.status(201).json({
@@ -43,7 +44,13 @@ exports.store = (req, res) => {
             createdPerson: person
         })
     }).catch(err => console.log(err));
-    console.log(person);
+
+    console.log({
+        data: req.body,
+        message: "Data is null"
+    });
+
+
 }
 
 /*
