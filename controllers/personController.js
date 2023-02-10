@@ -39,11 +39,11 @@ exports.store = (req, res) => {
     person.save().then(result => {
         console.log(result);
         res.status(201).json({
-            message: "Handling post request to /person ",
+            message: "people data added successfully",
             createdPerson: person
         })
     }).catch(err => console.log(err));
-
+    console.log(person);
 }
 
 /*
@@ -81,7 +81,7 @@ exports.destroy = (req, res,) => {
     Person.remove({ _id: id })
         .exec()
         .then(
-            res.redirect('/api/person')
+            res.redirect('/api/persons')
         )
         .catch(err => {
             console.log(err)
