@@ -66,7 +66,7 @@ exports.show = (req, res) => {
 exports.delete = (req, res) => {
     userModel.findByIdAndRemove(req.params.userID, (err, doc) => {
         if (!err) {
-            res.redirect('/api/users/list')
+            res.redirect('/web/users/list')
         } else {
             console.log(err);
         }

@@ -40,7 +40,7 @@ exports.destroy = (req, res) => {
     moviesModel.remove({ _id: id })
         .exec()
         .then(result => {
-            res.redirect('/api/movies/all')
+            res.redirect('/web/movies/all')
         })
         .catch(err => {
             console.log(err)

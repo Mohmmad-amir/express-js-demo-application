@@ -16,18 +16,12 @@ app.use('/', homePageRouter);
 // project Router
 const projectRouter = require('./routes/projectRoute')
 app.use('/api/projects', projectRouter);
-// user router
-const userRouter = require('./routes/userRouter')
-app.use('/api/users', userRouter);
-/*movie route*/
-const movieRouter = require('./routes/movieRoute')
-app.use('/api/movies', movieRouter)
-/*person route*/
-const personRouter = require('./routes/personRoute')
-app.use('/api/person', personRouter)
+/*web route*/
+const webRouter = require('./routes/web')
+app.use('/web', webRouter)
 //this route for return json data
-const apiRouter = require('./routes/apiRoutes')
-app.use('/api/json/data/v1', apiRouter)
+const apiRouter = require('./routes/api')
+app.use('/api', apiRouter)
 
 
 
