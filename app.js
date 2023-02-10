@@ -2,7 +2,7 @@ const express = require('express');
 var bodyParser = require('body-parser');
 const database = require('./db/database');
 const app = express();
-const port = 8080;
+const port = process.env.port || 8000;
 
 
 app.use(bodyParser.urlencoded({
