@@ -1,12 +1,23 @@
 // for home page
-exports.homePage = (req, res) => {
+const homePage = (req, res) => {
     res.render('home', { title: "Dashboard" })
 }
 // for about page
-exports.aboutPage = (req, res) => {
+const aboutPage = (req, res) => {
     res.render('about', { title: "about" })
 }
 //for contact page
-exports.contactPage = (req, res) => {
+const contactPage = (req, res) => {
     res.render('contact', { title: 'contact' })
+}
+// for people page
+const peoplePage = (req, res) => {
+    res.render('peopleList', { title: "People List" })
+}
+
+module.exports = {
+    homePage,
+    aboutPage,
+    contactPage,
+    peoplePage
 }

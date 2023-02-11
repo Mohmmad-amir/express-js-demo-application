@@ -5,7 +5,7 @@
             <tr>
                 <th scope="col">#</th>
                 <th scope="col">Name</th>
-                <th colspan="3">action</th>
+                <th class="text-center" colspan="3">action</th>
 
             </tr>
         </thead>
@@ -20,17 +20,20 @@
                         <%= data[i].name%>
                     </td>
                     <td>
-                        <a href="/api/movies/<%= data[i]._id%>/edit" class="btn btn-sm btn-info">Edit <i
-                                class="fa-solid fa-pen-to-square"></i></a>
+                        <a href="/api/movies/<%= data[i]._id%>/edit" class="btn btn-sm btn-info">Edit
+                            <i class="fa-solid fa-pen-to-square"></i>
+                        </a>
                     </td>
                     <td>
-                        <a href="/web/movies/<%= data[i]._id%>/show" class="btn btn-sm btn-primary">Show <i
-                                class="fa-solid fa-binoculars"></i></a>
+                        <a href="/web/movies/<%= data[i]._id%>/show" class="btn btn-sm btn-primary">Show
+                            <i class="fa-solid fa-binoculars"></i>
+                        </a>
 
                     </td>
                     <td>
-                        <a href="/web/movies/delete/<%= data[i]._id%>" class="btn btn-sm btn-danger">Delete <i
-                                class="fa-solid fa-trash"></i></a>
+                        <a href="/web/movies/delete/<%= data[i]._id%>" class="btn btn-sm btn-danger">Delete
+                            <i class="fa-solid fa-trash"></i>
+                        </a>
 
                     </td>
                 </tr>

@@ -2,13 +2,15 @@
 const express = require('express')
 const router = express.Router()
 // page controller
-const page_controller = require('../controllers/pageController')
+const { homePage, aboutPage, contactPage, peoplePage } = require('../controllers/pageController')
 // home page route and using page controller
-router.get('/', page_controller.homePage)
+router.get('/', homePage)
 // about page route and using page controller
-router.get('/about', page_controller.aboutPage)
+router.get('/about', aboutPage)
 // contact page route and using page controller
-router.get('/contact', page_controller.contactPage)
+router.get('/contact', contactPage)
+// contact page route and using page controller
+router.get('/people-list', peoplePage)
 
 
 
