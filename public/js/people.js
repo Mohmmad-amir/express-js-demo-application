@@ -1,5 +1,4 @@
 let peopleTable = $("#peopleTable")
-
 let people = []
 
 $(document).ready(() => {
@@ -23,7 +22,7 @@ $(document).ready(() => {
     */
     const makeTrContent = peopleTr => {
         return `
-        <td>${peopleTr._id}</td>
+        <td>${peopleTr.id}</td>
         <td>${peopleTr.name}</td>
         <td>
         <button data-bs-toggle="modal" data-bs-target="#bookModal" onclick="editBook(this,${peopleTr._id})" class="btn btn-warning btn-sm">Edit <i class="fa-solid fa-pen-to-square"></i></button>
@@ -46,14 +45,13 @@ $(document).ready(() => {
 const deletePerson = (elm, id) => {
     axios.delete(`api/persons/${id}`)
         .then(({ data }) => {
-            let { success, message } = data;
+            let { success, error } = data;
             if (success) {
                 elm.parentElement.parentElement.remove()
                 people = people.filter(person => person.id != id)
-                // console.log(books)
             }
             else {
-                alert(message)
+                alert(error)
             }
         })
         .catch(err => console.log(err))
