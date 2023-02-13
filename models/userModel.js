@@ -3,7 +3,10 @@ const mongoose = require('mongoose')
 const { Schema } = mongoose
 // create a schema
 const userSchema = new Schema({
-    name: Array,
+    name: [
+        first_name,
+        last_name
+    ],
     title: String,
     email: { type: String, required: true },
     age: Number,
