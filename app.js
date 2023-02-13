@@ -7,12 +7,11 @@ const port = process.env.port || 8000;
 app.use(express.urlencoded({ extended: false }));
 //parse json
 app.use(express.json())
-app.set('view engine', 'ejs')
 // setup static folder
 app.use(express.static(__dirname + '/public/'))
 // home page router
-const homePageRouter = require('./routes/pages')
-app.use('/', homePageRouter);
+// const homePageRouter = require('./routes/pages')
+// app.use('/', homePageRouter);
 // project Router
 const projectRouter = require('./routes/projectRoute')
 app.use('/api/projects', projectRouter);
