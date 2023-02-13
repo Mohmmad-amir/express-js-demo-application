@@ -14,13 +14,16 @@ app.use(express.static(__dirname + '/public/'))
 // app.use('/', homePageRouter);
 // project Router
 const projectRouter = require('./routes/projectRoute')
-app.use('/api/projects', projectRouter);
-/*web route*/
-const webRouter = require('./routes/web')
-app.use('/web', webRouter)
+app.use('/api/v1/projects', projectRouter);
+// /*web route*/
+// const webRouter = require('./routes/web')
+// app.use('/web/v1.0.0/', webRouter)
+/*movies route*/
+const movieRouter = require('./routes/movieRouter')
+app.use('/api/v1', movieRouter)
 //this route for return json data
-const apiRouter = require('./routes/api_route')
-app.use('/api', apiRouter)
+const peopleRouter = require('./routes/peopleRouter')
+app.use('/api/v1', peopleRouter)
 
 
 app.listen(port, () => {

@@ -8,9 +8,9 @@ const moviesSchema = new Schema({
     directed_by: String,
     written_by: String,
     produced_by: Array,
-    starting: Object,
+    starting: Array,
     cinematography: String,
-    edited_by: Object,
+    edited_by: Array,
     music_by: String
 
 })
