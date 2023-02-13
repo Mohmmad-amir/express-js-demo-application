@@ -40,6 +40,7 @@ $(document).ready(() => {
 /*
 * setup delete method for delete one data
 * from database
+* delete method is not working
  */
 
 const deletePerson = (elm, id) => {
