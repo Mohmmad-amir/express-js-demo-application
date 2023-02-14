@@ -90,11 +90,8 @@ const update = (req, res) => {
     Person.updateOne({ _id: id }, { $set: updateOps })
         .exec()
         .then(result => {
-            console.log(result);
             res.status(200).json(result)
-        }
-
-        )
+        })
         .catch(err => {
             res.status(500).json({
                 error: err
@@ -112,7 +109,7 @@ const update = (req, res) => {
 
 const destroy = (req, res,) => {
     const id = req.params.personID
-    Person.remove({ _id: id })
+    Person.deleteOne({ _id: id })
         .exec()
         .then(
             res.status(200).json({

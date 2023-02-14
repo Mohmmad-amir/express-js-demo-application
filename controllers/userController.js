@@ -6,7 +6,7 @@ const index = (req, res) => {
     User.find()
         .exec()
         .then(docs => {
-            if (docs > 0) {
+            if (docs.length > 0) {
                 res.status(200).json(docs)
             }
             else {
@@ -57,7 +57,7 @@ const store = (req, res, next) => {
 
 // show function
 const show = (req, res) => {
-    const id = req.param.userID
+    const id = req.params.userID
     User.findById(id)
         .exec()
         .then(doc => {
@@ -106,7 +106,7 @@ const update = (req, res) => {
 */
 const destroy = (req, res) => {
     const id = req.params.userID
-    User.remove({ _id: id })
+    User.deleteOne({ _id: id })
         .exec()
         .then(
             res.status(200).json({
