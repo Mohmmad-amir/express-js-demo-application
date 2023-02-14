@@ -9,8 +9,7 @@ const index = (req, res, next) => {
     Person.find()
         .exec()
         .then(docs => {
-            // console.log(docs);
-            if (docs.length >= 0) {
+            if (docs.length > 0) {
                 res.status(200).json(docs)
             } else {
                 res.status(200).json({

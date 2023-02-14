@@ -37,6 +37,7 @@ const store = (req, res, next) => {
         mothers_name: req.body.mothersName,
         gender: req.body.gender,
         nationality: req.body.nationality,
+        religion: req.body.religion,
         address: {
             village: req.body.village,
             post_code: req.body.postCode,
