@@ -1,22 +1,18 @@
 const mongoose = require('mongoose')
 
 // Link
-const mongodbLink = 'mongodb+srv://Mohmmad_amir:O25AXHL31XRYud0G@cluster0.shp9rwm.mongodb.net/portfolio?retryWrites=true&w=majority'
+const mongodbLink = process.env.DATABASE_URI
 // const mongodbLink = 'mongodb://localhost:27017/portfolio'
 // database setup
-const database = module.exports = () => {
-    mongoose.set('strictQuery', true);
-    const connectionParams = {
-        useNewUrlParser: true,
-        useUnifiedTopology: true,
-        // useFindAndModify: false
-    }
+const database = async () => {
     try {
-        mongoose.connect(mongodbLink, connectionParams);
-        console.log('database connected successfully');
-
-    } catch (error) {
-        console.log(error);
-        console.log('database connect failed');
+        await mongoose.connect(process.env.DATABASE_URI, {
+            useUnifiedTopology: true,
+            useNewUrlParser: true
+        });
+    } catch (err) {
+        console.log(err);
     }
 }
+
+module.exports = database
